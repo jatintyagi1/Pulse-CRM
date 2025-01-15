@@ -1,0 +1,46 @@
+/* Auth Page General Styles */
+.register-form {
+    margin-top: 20px;
+}
+
+.register-form-button {
+    width: 100%;
+    background-color: #1890ff;
+    border-color: #1890ff;
+}
+
+.register-form-button:hover {
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+}
+
+.redirect-text {
+    margin-left: 10px;
+}
+
+.sideContent h1 {
+    font-size: 28px;
+    color: #1890ff;
+}
+
+.sideContent .ant-typography-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.space20 {
+    margin-top: 20px;
+}
+
+.list-checked {
+    padding: 10px 0;
+}
+
+/* Responsive Design  */
+
+@media (max-width: 768px) {
+    .login-form-forgot{
+        margin-left: 58px;
+    }
+}
+
