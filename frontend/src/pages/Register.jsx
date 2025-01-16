@@ -1,12 +1,31 @@
 import { Button, Form } from "antd";
 import RegisterForm from "../forms/RegisterForm";
 import AuthModule from '../module/AuthModule/index'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
 
-    const onFinish = (values) => {
-        console.log(values)
-    }
+    const navigate = useNavigate();
+
+    const onFinish = async (values) => {
+        const BACKEND_URL = import.meta.env.VITE_BACKEND_SERVER; // Using the .env variable
+        try {
+            const response = await axios.post(`${BACKEND_URL}/api/auth/register`, values);
+            console.log('Registration successful:', response.data);
+            navigate("/dashboard");
+        } catch (error) {
+            if (error.response) {
+                console.error('Error:', error.response.data.error || 'An error occurred.');
+            } else if (error.request) {
+                console.error('Error: No response received from the server.');
+            } else {
+                console.error('Error:', error.message);
+            }
+        }
+    };
+
+
 
     const FormContainer = () => {
         return (
