@@ -9,8 +9,10 @@ const app = express();
 
 //Middleware
 app.use(cors({
-    origin: 'https://pulsecrm.vercel.app/',
+    origin: 'https://pulsecrm.vercel.app',
     credentials: true,
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 // app.use(cors({
