@@ -11,7 +11,7 @@ function Register() {
     const onFinish = async (values) => {
         const BACKEND_URL = import.meta.env.VITE_BACKEND_SERVER; // Using the .env variable
         try {
-            const response = await axios.post(`${BACKEND_URL}/api/auth/register`, values);
+            const response = await axios.post(`${BACKEND_URL}api/auth/register`, values);
             console.log('Registration successful:', response.data);
             navigate("/dashboard");
         } catch (error) {
