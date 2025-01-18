@@ -1,6 +1,6 @@
 import './App.css'
 import { lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 
 const Register = lazy(() => import('./pages/Register'));
@@ -9,14 +9,14 @@ const Dashboard = lazy(() => import('./pages/Dashboard'));
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path='/' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

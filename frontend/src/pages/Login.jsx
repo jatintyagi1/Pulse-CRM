@@ -1,6 +1,7 @@
 import { Button, Form } from 'antd';
 import AuthModule from '../module/AuthModule';
 import LoginForm from '../forms/LoginForm';
+import { Link } from 'react-router-dom';
 
 function Login() {
 
@@ -33,7 +34,7 @@ function Login() {
                         Sign In
                     </Button>
                 </Form.Item>
-                or <a href="/register">don&apos;t have account Login</a>
+                or <Link to="/register">don&apos;t have account Login</Link>
             </Form>
         )
     }

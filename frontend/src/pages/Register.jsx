@@ -2,7 +2,7 @@ import { Button, Form } from "antd";
 import RegisterForm from "../forms/RegisterForm";
 import AuthModule from '../module/AuthModule/index'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
 
@@ -52,7 +52,7 @@ function Register() {
                         Register
                     </Button>
                 </Form.Item>
-                or <a href="/login">already have account Login</a>
+                or <Link to="/login">already have account Login</Link>
             </Form>
         )
     }

@@ -1,5 +1,6 @@
 import { Checkbox, Form, Input } from "antd";
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
     return (
@@ -45,9 +46,9 @@ const LoginForm = () => {
                 }}
             >
                 <Checkbox>Remember me</Checkbox>
-                <a className="login-form-forgot" href="/forgetpassword" style={{ marginLeft: '140px'}}>
+                <Link className="login-form-forgot" to="/forgetpassword" style={{ marginLeft: '140px'}}>
                     Forgot Password
-                </a>
+                </Link>
             </Form.Item>
 
         </div>
