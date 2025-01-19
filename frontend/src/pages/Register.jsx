@@ -5,11 +5,10 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Register() {
-
     const navigate = useNavigate();
 
     const onFinish = async (values) => {
-        const BACKEND_URL = import.meta.env.VITE_BACKEND_SERVER; // Using the .env variable
+        const BACKEND_URL = import.meta.env.VITE_BACKEND_SERVER; 
         try {
             const response = await axios.post(`${BACKEND_URL}/api/auth/register`, values);
             console.log('Registration successful:', response.data);

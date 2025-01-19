@@ -6,6 +6,7 @@ const LoginForm = () => {
     return (
         <div>
             <Form.Item
+                name="email"
                 label="email"
                 rules={[
                     {
@@ -25,6 +26,7 @@ const LoginForm = () => {
             </Form.Item>
 
             <Form.Item
+                name="password"
                 label="password"
                 rules={[
                     {

@@ -1,12 +1,27 @@
 import { Button, Form } from 'antd';
 import AuthModule from '../module/AuthModule';
 import LoginForm from '../forms/LoginForm';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
+    const navigate = useNavigate();
 
-    const onFinish = (values) => {
-        console.log(values)
+    const onFinish = async (values) => {
+        const BACKEND_URL = import.meta.env.VITE_BACKEND_SERVER;
+        try {
+            const response = await axios.post(`${BACKEND_URL}/api/auth/login`, values);
+            console.log('Registration successful:', response.data);
+            navigate('/dashboard')
+        } catch (error) {
+            if (error.response) {
+                console.error('Error:', error.response.data.error || 'An error occurred.');
+            } else if (error.request) {
+                console.error('Error: No response received from the server.');
+            } else {
+                console.error('Error:', error.message);
+            }
+        }
     };
 
     const FormContainer = () => {
