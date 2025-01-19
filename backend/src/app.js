@@ -8,17 +8,17 @@ const appRoute = require('./routes/authRoute');
 const app = express();
 
 //Middleware
-app.use(cors({
-    origin: 'https://pulsecrm.vercel.app',
-    credentials: true,
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-}));
-
 // app.use(cors({
-//     origin: 'http://localhost:5173',
+//     origin: 'https://pulsecrm.vercel.app',
 //     credentials: true,
+//     methods: ["GET", "POST"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
 // }));
+
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+}));
 
 
 app.use(cookieParser());
