@@ -11,7 +11,7 @@ const app = express();
 app.use(cors({
     origin: 'https://pulsecrm.vercel.app',
     credentials: true,
-    methods: ["GET", "POST"],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
