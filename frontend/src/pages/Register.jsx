@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Button, Form } from "antd";
+import { Button, Form, notification } from "antd";
 import RegisterForm from "../forms/RegisterForm";
 import AuthModule from '../module/AuthModule/index';
 import Loading from '../components/Loading';
@@ -16,18 +16,29 @@ function Register() {
 
     useEffect(() => {
         if (isAuthenticated) {
+            notification.success({
+                message: "Registration Successful",
+                description: "You have successfully registered!",
+                duration: 3,
+            });
             navigate('/dashboard');
         }
+
         if (error) {
-            console.error('Error:', error);
+            notification.error({
+                message: "Registration Failed",
+                description: error || "An error occurred while registering.",
+                duration: 3,
+            });
         }
+
         return () => {
             dispatch(clearError()); // Clear any previous errors when component unmounts
         };
     }, [isAuthenticated, error, navigate, dispatch]);
 
     const onFinish = (values) => {
-        dispatch(registerAdmin(values)); 
+        dispatch(registerAdmin(values));
     };
 
     const FormContainer = () => (

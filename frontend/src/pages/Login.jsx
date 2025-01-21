@@ -1,4 +1,4 @@
-import { Button, Form } from 'antd';
+import { Button, Form, notification } from 'antd';
 import AuthModule from '../module/AuthModule';
 import LoginForm from '../forms/LoginForm';
 import Loading from '../components/Loading';
@@ -15,11 +15,20 @@ function Login() {
 
     useEffect(() => {
         if (isAuthenticated) {
+            notification.success({
+                message: "Login Successful",
+                description: "Welcome back! Redirecting to the dashboard...",
+                duration: 3,
+            });
             navigate('/dashboard');
         }
 
         if (error) {
-            console.error('Error:', error);
+            notification.error({
+                message: "Login Failed",
+                description: error || "Invalid credentials. Please try again.",
+                duration: 3,
+            });
         }
 
         // Clear error when component unmounts
