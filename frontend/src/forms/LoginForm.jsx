@@ -48,7 +48,7 @@ const LoginForm = () => {
                 }}
             >
                 <Checkbox>Remember me</Checkbox>
-                <Link className="login-form-forgot" to="/forgetpassword" style={{ marginLeft: '140px'}}>
+                <Link className="login-form-forgot" to="/forget-password" style={{ marginLeft: '140px'}}>
                     Forgot Password
                 </Link>
             </Form.Item>

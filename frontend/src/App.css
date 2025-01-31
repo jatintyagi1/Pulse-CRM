@@ -1,3 +1,4 @@
 @import './styles/core.css';
 
-@import './styles/AuthStyle.css'
+@import './styles/AuthStyle.css';
+@import './styles/Header.css';
