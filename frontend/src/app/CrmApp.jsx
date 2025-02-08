@@ -33,10 +33,10 @@ export default function CrmApp() {
                     <Header />
                     <Content
                         style={{
-                            margin: '40px auto 30px',
+                            margin: '10px auto 10px',
                             overflow: 'initial',
                             width: '100%',
-                            padding: '0 50px',
+                            padding: '0 10px',
                             maxWidth: 1400,
                         }}
                     >

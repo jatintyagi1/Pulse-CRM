@@ -8,7 +8,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFound'));
 
 function AuthRouter() {
     return (
-        <HashRouter>
+      
             <Routes>
                 <Route path='/' element={<Login />} />
                 <Route path='/login' element={<Login />} />
@@ -16,7 +16,7 @@ function AuthRouter() {
                 <Route path='/forget-password' element={<ForgetPassword />} />
                 <Route path='*' element={<NotFoundPage />} />
             </Routes>
-        </HashRouter>
+       
     )
 }
 

@@ -1,4 +1,7 @@
 @import './styles/core.css';
-
 @import './styles/AuthStyle.css';
 @import './styles/Header.css';
+@import './styles/customAntd.css';
+@import './styles/layout.css';
+@import './styles/sidePanel.css';
+@import './styles/transition.css';

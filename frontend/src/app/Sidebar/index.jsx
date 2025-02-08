@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Drawer, Layout, Menu } from "antd";
+import { Link, useNavigate } from 'react-router-dom';
 import useResponsive from "../../hooks/useResponsive";
 
 import {
@@ -13,28 +14,116 @@ import {
     ShopOutlined,
     WalletOutlined,
     ReconciliationOutlined,
+    UserOutlined,
+    FilterOutlined,
+    FileOutlined,
+    TagOutlined,
+    TagsOutlined,
+
 } from "@ant-design/icons";
 
 const { Sider } = Layout;
 
 export default function Sidebar() {
     const { isMobile } = useResponsive();
+
     return isMobile ? <MobileSidebar /> : <DesktopSidebar />;
 }
 
 const menuItems = [
-    { key: "dashboard", icon: <DashboardOutlined />, label: "Dashboard" },
-    { key: "customer", icon: <CustomerServiceOutlined />, label: "Customers" },
-    { key: "invoice", icon: <ContainerOutlined />, label: "Invoices" },
-    { key: "quote", icon: <FileSyncOutlined />, label: "Quote" },
-    { key: "payment", icon: <CreditCardOutlined />, label: "Payments" },
-    { key: "paymentMode", icon: <WalletOutlined />, label: "Payments Mode" },
-    { key: "taxes", icon: <ShopOutlined />, label: "Taxes" },
-    { key: "generalSettings", icon: <SettingOutlined />, label: "Settings" },
-    { key: "about", icon: <ReconciliationOutlined />, label: "About" },
+    {
+        key: 'dashboard',
+        icon: <DashboardOutlined />,
+        label: <Link to="/">Dashboard</Link>,
+    },
+    {
+        key: 'customer',
+        icon: <CustomerServiceOutlined />,
+        label: <Link to={'customers'}>Customers</Link>,
+    },
+    {
+        key: 'people',
+        icon: <UserOutlined />,
+        label: 'Peoples',
+    },
+    {
+        key: 'company',
+        icon: <ShopOutlined />,
+        label: 'Companies',
+    },
+    {
+        key: 'lead',
+        icon: <FilterOutlined />,
+        label: 'Leads',
+    },
+    {
+        key: 'offer',
+        icon: <FileOutlined />,
+        label: 'Offers',
+    },
+    {
+        key: 'invoice',
+        icon: <ContainerOutlined />,
+        label: 'Invoices',
+    },
+    {
+        key: 'quote',
+        icon: <FileSyncOutlined />,
+        label: 'Proforma Invoices',
+    },
+    {
+        key: 'payment',
+        icon: <CreditCardOutlined />,
+        label: 'Payments',
+    },
+    {
+        key: 'product',
+        icon: <TagOutlined />,
+        label: 'Products',
+    },
+    {
+        key: 'categoryproduct',
+        icon: <TagsOutlined />,
+        label: 'Products Category',
+    },
+    {
+        key: 'expenses',
+        icon: <WalletOutlined />,
+        label: 'Expenses',
+    },
+    {
+        key: 'expensesCategory',
+        icon: <ReconciliationOutlined />,
+        label: 'Expenses Category',
+    },
+    {
+        key: 'settings',
+        icon: <SettingOutlined />,
+        label: 'Settings',
+        children: [
+            {
+                key: 'generalSettings',
+                label: 'Settings',
+            },
+            {
+                key: 'paymentMode',
+                label: 'Payments Mode',
+            },
+            {
+                key: 'taxes',
+                label: 'Taxes',
+            },
+            {
+                key: 'about',
+                label: 'About',
+            },
+        ],
+    },
 ];
 
+
 function DesktopSidebar({ collapsible = false, isMobile = false }) {
+    const navigate = useNavigate();
     return (
         <Sider
             collapsible={collapsible}
@@ -48,7 +137,7 @@ function DesktopSidebar({ collapsible = false, isMobile = false }) {
                 bottom: "20px",
                 left: isMobile ? "0" : "0px",
                 top: isMobile ? "0" : "0px",
-                boxShadow: isMobile ? "none" : "2px 0px 10px rgba(0, 0, 0, 0.1)",
+                boxShadow: isMobile ? "none" : "none",
                 // borderRadius: "10px",
                 backgroundColor: "#ffffff",
             }}
@@ -64,7 +153,9 @@ function DesktopSidebar({ collapsible = false, isMobile = false }) {
                     fontWeight: "bold",
                     color: "#1890ff",
                     borderBottom: "1px solid #f0f0f0",
+                    borderRight: "1px solid #f0f0f0",
                 }}
+                onClick={() => navigate('/')}
             >
                 PULSE
             </div>
@@ -100,7 +191,6 @@ function MobileSidebar() {
                     position: "fixed",
                     top: "10px",
                     left: "-10px",
-                    zIndex: 1000,
                     // background: "#1890ff",
                     color: "black",
                     borderRadius: "5px",
